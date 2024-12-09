@@ -1,0 +1,32 @@
+1.	Mục đích
+Giúp sinh viên tìm hiểu được thế nào là Brute Force, cách dung Hydra để thực hiện một cuộc tấn công đơn giản nhằm tìm được mật khẩu đúng nhằm truy cập tới máy mục tiêu.
+
+2.	Yêu cầu đối với sinh viên
+Có kiến thức cơ bản về hệ điều hành Linux, biết sử dụng ssh cơ bản vcông cụ Hydra.
+
+3.	Nội dung thực hành
+Khởi động bài lab:
+Vào terminal, gõ: 
+startlab t1110
+ (chú ý: sinh viên sử dụng mã sinh viên của mình để nhập thông tin email người thực hiện bài lab khi có yêu cầu, để sử dụng khi chấm điểm)
+Sau khi khởi động xong hai terminal ảo sẽ xuất hiện, một máy là client, một máy là server. Trên terminal client đã được cung cấp sẵn một file password_list.txt, sinh viên sẽ sử dụng file này làm để brute force bằng Hydra.
+•	Bước 1: Sinh viên sử dụng ifconfig để kiểm tra địa chỉ ip máy server:
+				Server: 
+ifconfig
+•	Bước 2: Sinh viên sử dụng Hydra với password_list.txt để cố gắng ssh đến
+máy server:
+				Client: 
+hydra -l <username> -P /path/to/passwords.txt ssh://<ip_server>
+•	Bước 3: Sinh viên sử dụng password đúng sau khi tìm được ở trên để ssh đến
+máy server:
+				Client: 
+ssh <ip_server>
+
+Kết thúc bài lab:
+Trên terminal đầu tiên sử dụng câu lệnh sau để kết thúc bài lab:
+stoplab t1110
+Khi bài lab kết thúc, một tệp zip lưu kết quả được tạo và lưu vào một vị trí được hiển thị bên dưới stoplab.
+Khởi động lại bài lab:
+Trong quá trình làm bài sinh viên cần thực hiện lại bài lab, dùng câu lệnh:
+startlab –r t1110
+
